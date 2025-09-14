@@ -248,12 +248,12 @@ He walks up to you.
 You currently have {money} coins.
 
 {charisma >= 3:
-    The merchant eyes you cautiously. "Ah... y-y-yes, of course, nothing less for you, great wizard! For one as charming and persuasive as yourself, I can offer a discount."
+    The merchant eyes you cautiously. "Ah... y-y-yes, of course, nothing less for you, great wizard! For one as charming and persuasive as yourself, I suppose I can offer a discount.... "
     ~ money = money - 5
     You buy the item for 10 coins less than the usual price.
     CHARISMA CHECK PASSED! 
 - else:
-    The merchant frowns. "Hmph. I don’t make deals with the likes of you. Standard price only."
+    The merchant frowns. "Hmph. I don’t make deals with the likes of you wizard SCUM. Standard price only."
     ~ money = money - 15
     You pay the full price.
 }
@@ -277,8 +277,115 @@ The merchant laughs and walks away. What now?
 
 ==continue_path_6
 
-You finally see the city gates
+You finally see the city gates in the distance. AT LAST !! You've reached the end of your journey. As you approach the entrance to the city, you thank your lucky stars that it will soon all be over... 
 
+The Chancellor Prince is there to meet you at the gates.
+"Hello, fair Greenbeard!!! It's been far too long!" he says when he sees you, running towards you. I forgot to mention; he is only 17 years old, and somewhat of a tyrant. his father died a few years ago, leaving him in charge of the nation of Celine, assuming the positon of "Chancellor Prince" -- a position he was soon to find a way to rework to allow him all the same priveliges and honors of an actual king. You flinch at his presence, but hide it well. 
+"Hello, noble Prince. It is nice to see you too!" You bow to him, grinding your teeth as you do. "I am ready to fulfill my duty, sir. Where is the elder, and what is his name?" 
+"Why, of course, Greenbeard. I know you are a very, very busy man. You have much pipe-smoking to attend to at home in the West Continent -- and I mean not to keep you from your necessary activites." He smirks at you. "What a dick," you think to yourself.
+
+*[Continue listening] -> continue_listening_1
+
+==continue_listening_1
+
+As the Prince continues, your eyes drift to behind him. A crowd has gathered to listen to your conversation, and you can hear your name spoken in hushed whisphers; "Greenbeard, oh my gods, it's really him..." "I've heard the stories.. Have you?" "What a glorious day this is..."
+"Well?" The prince looks at you as if he'd asked you something. Oh shit. You weren't listening. 
+"Ah yes, yes," you nod and smile, hoping that's enough. Is apparently was, as the prince smiles back and says, "of course you'd agree my old friend! You were my father's favorite of the fair warlocks of age for a reason, after all! I know that head on your shoulders is good and sound, despite all your hubris!" He exclaims with a chuckle. "Is this guy for real right now?" you think. 
+"Ah well, enough of this one-sided banter. You were always a dry one, Greenbeard, but I don't blame you for it. If I could cast spells that great, I sure as hell wouldn't fraternize with the likes of mere mortals!" You can see one of his royal guards roll their eyes. "Follow me, old friend, I'll take you to your duty." 
+* [Follow the Chancellor Prince] -> follow_prince
+
+==follow_prince==
+
+You follow the prince. He walks down the streets of the capital of Celine, known to its inhabitants as "The City of Green Tea Leaves" due to its lucrative tea trade and iconic green tea trees dotting its many streets and walkways. The city is a beautiful one, well upkept by the King in his days, known far and wide for its academic and athletic prowess -- their scholars and gladiators were some of the highest ranked in the global leagues. "How long has it been since you've visited our city, Greenbeard? Not since my father died, at least." He smiles at you. 
+"Oh yes, it's been about 3 or 4 years. I think the last time was for that banquet, a few months before his passing." You oblige his effort at conversation. 
+"Ohhhh, of course, how could I forget! I did love your party tricks that evening, though I was too young to appreciate the subtle nuances of your spellcraft! I do hope the elder asks you to perform some kind of wizardry... Surely he must, right? I mean, he asked for you specifically for a reason, no doubt."
+"I suppose we'll see, my Lord," you say. ... "My god, does this guy ever shut up?" you say, this time to yourself. 
+You approach a split in the path. The prince grins at you. "So... Greenbeard, since its been so long... do you think you can manage telling me which way's the correct way to the elder dwelling quarters? Surely you haven't forgotten... I know you've been there before." 
+
+Uh oh.. Which way was it again? 
+
+* [Left path] -> continue_following
+*[Right path] -> right_path
+
+==right_path==
+You begin walking down the right path. You do not wait to see if the Prince follows you.... and suddenly, you hear a loud CLANG !!! A giant metal anvil has fallen directly infront of you... a TRAP!!! And a failed one at that.... You briskly turn around and guard yourself. But you see... the Prince buckled over in laughter. 
+"OHH YOU SHOULD'VE SEEN THE LOOK ON YOUR FACE!!" He cackles. He's really losing it over there. "OH MY GODS, HAHAHAAA!! WHAT FUN!! HOW FUN IT IS, TO TRICK A WIZARD!!" 
+The people surrounding him begin laughing too, as the guards glare at them... they know if they refuse... they might be chosen at random and strung up in the city courtyards. It all depends on the Prince's mood that day.. They know this well. 
+
+'I'm not amused, Prince," you say. "You're lucky your father is dead. If he wasn't he'd give you a right spanking for that one.
+At that, the Prince walks right up to you, and slaps you in the face.
+
+YOUR STATS: 
+Strength : {strength}
+Intellligence : {intelligence}
+Charisma : {charisma}
+
+
+* [Retaliate...] -> retaliate
+* [Do nothing.] -> do_nothing_2
+
+
+==retaliate==
+You smack him back, harder than his. He reels backwards in shock. The crowd gaspes audibly.. and the guards point their spears towards you, waiting for the Prince's next move.... 
+
+{charisma >= 3:
+    The Prince suddenly breaks out into laughter. He laughs so hard the crowd begins to laugh a litte... before stopping and waiting... this was odd. Was this the calm before the storm?.. 
+    "You know... Greenbeard, I haven't been slapped in a long, long, time. Not since my father passed! I've always thought you reminded me of him a wee You're both old, after all. I respect your bravery. It takes balls to slap a prince in front of his subjects. I'll remember that."
+    
+    CHARISMA CHECK PASSED! 
+    He slaps you again. This time, you both laugh. Maybe this kid isn't so bad after all. 
+    
+    -> continue_following
+- else:
+   
+    GUARDS!!! SEIZE HIM!!! 
+    
+    
+    The guards leap upon you savagely. They mean to kill. 
+    CHARISMA CHECK FAILED!
+    YOU LOSE!
+    (out with a bang ending)
+   
+    
+}
+
+
+-> DONE
+
+==do_nothing_2==
+
+-> DONE
+
+==continue_following==
+
+FINALLY, he brings you to the entrance of the elder's abode. "Here we are.... Shall we, Greenbeard?"
+He opens the door, entering the home... 
+It is a fairly big room, equipped with the many furnishings of an older dwelling -- chairs and tables, and a fireplace, and many beautiful paintings. The lighting is dim and mourning, fitting for the occasion, and in the corner you can make out the shape of a bed. Two guards stand on either side of it. As you walk closer, you see a nurse kneeled next to him, whispering stories to him. Suddenly, as you approach, his eyes open.
+
+He grunts. 
+"Old man !! Look who I've brought! It's GREENBEARD!! He had to travel here all the way across the ocean man, can you believe it? 
+The man moans once more. "Too... loud.. quiet down you little squirt..." His face is scrunched in pain, the lines on his face telling a story -- he was clearly older than a hundred years old. Old enough to experience the olden days of the elves and Purple Warlocks firsthand. "Wow..." you think to yourself. "The kinds of stories this man must have..."
+The prince laughs. "Oh, shut up you old fart. Go on... Tell him what you wish!" 
+
+You approach the old man.... 
+
+* [Listen to his request] -> listen
+
+== listen ==
+
+You kneel down next to him and look him in the eye. He looks back at you peacefully, yet a hint of greed is behind those eyes; he wants something. He NEEDS something from you... and you are the only one who can do it. You lean in and position your ear by his mouth. 
+
+"Greenbeard...""
+
+You shift your weight. His breath feels awfully uncomfortble on your ear... "Hurry up then," you think to yourself...
+
+* [continue...] -> continue_listening_2
+
+==continue_listening_2
+
+"Kill him.... Kill.. Murder the prince... 
+Only you can do it, Greenbeard... I know it's true... I've seen you work, just like I've seen the great wizards of my age who've come and gone... and you're the only one who comes even close to mimicking their power in their primes..." 
+He coughs. You shudder a little bit, as horror fills your body. You are not afraid of a mere boy... but you think briefly of the old King, who you knew well... and of his wife, who yet lives, though she's permitted little sunlight by the cruel Prince, locked away in her corridors... 
 
 
 
