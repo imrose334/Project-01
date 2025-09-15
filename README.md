@@ -45,6 +45,7 @@ For full 20 points:
 
 
 1. More than Eight Knots (2 points)
+Yes there are a lot
     lines include:
     32
     61
@@ -58,6 +59,7 @@ For full 20 points:
     572
     601
 2. Pick up Items & Change Game State (1 point)
+There are two items: the dagger from the barracks, and the new wand from the merchant.
     lines include:
     143
     159
@@ -68,6 +70,7 @@ For full 20 points:
     275
     69
 3. Give the Player Statistics, Allow Upgrades, and Gate Options (1 point)
+Yes, there are 3 skills, Strength, Intelligence and Charisma, as well as the ability to reallocate them. There are also skill checks for each of these.
     lines include:
     482
     408
@@ -75,6 +78,7 @@ For full 20 points:
     172
     42 - 45
 4. Keep Track of Visited Passages (1 point)
+There are two knots in particular that keep track of visited passages, ==continue_path_== on line 286, and ==enter_structure== on line 61.
     lines include:
     27 - 29
     288
