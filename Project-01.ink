@@ -153,6 +153,12 @@ You SLASH your way through the mob, dodging spells left and right!! Each warlock
 
 WELL DONE  !!
 You are now Level {advance_level()}
+
+STATS:
+Strength : {strength}
+Intellligence : {intelligence}
+Charisma : {charisma}
+
 ->upgrade_menu_2
 
 -> DONE
@@ -185,7 +191,7 @@ if you do then you get a level
 ~ return level
 
 
-
+###upgrade menus 
 
 == upgrade_menu_1 ==
 You have advanced to Level {level}! Congratulations. 
@@ -213,9 +219,29 @@ Now you may choose one of your three stats to increase by one value. Choose wise
 ~ charisma = charisma + 1
 -> continue_path_4
 
+== upgrade_menu_3 ==
+You have advanced to Level {level}! Congratulations. 
+Now you may choose one of your three stats to increase by one value. Choose wisely!
+* [increase Strength] 
+~ strength = strength + 1 
+-> choices
+* [Increase Intelligence]
+~ intelligence = intelligence + 1 
+-> choices
+* [increase Charisma]
+~ charisma = charisma + 1
+-> choices
+
 
 
 == continue_path_4 ==
+
+
+STATS:
+Strength : {strength}
+Intellligence : {intelligence}
+Charisma : {charisma}
+
 After succesfully slaying all the warlocks, you make your way down the path again. The rain begins to lighten up as you continue to cross the hilly steppes of Celine. You can sense you're nearing the end of your journey, and you're soon to reach the city gates, where you will be escorted to the final elder's living chambers by the Chancellor Prince's envoys. 
 You see a campfire on your right !! SPLENDID !! You can use this to reallocate any points you might've placed in stats you now regret. Take note; charisma is best used for interactions, intelligence is best used for spellwork, and strength is best used for battle.
 *[choose to reallocate] ->reallocation_options
@@ -280,7 +306,7 @@ The merchant laughs and walks away. What now?
 You finally see the city gates in the distance. AT LAST !! You've reached the end of your journey. As you approach the entrance to the city, you thank your lucky stars that it will soon all be over... 
 
 The Chancellor Prince is there to meet you at the gates.
-"Hello, fair Greenbeard!!! It's been far too long!" he says when he sees you, running towards you. I forgot to mention; he is only 17 years old, and somewhat of a tyrant. his father died a few years ago, leaving him in charge of the nation of Celine, assuming the positon of "Chancellor Prince" -- a position he was soon to find a way to rework to allow him all the same priveliges and honors of an actual king. You flinch at his presence, but hide it well. 
+"Hello, fair Greenbeard!!! It's been far too long!" he says when he sees you, running towards you. I forgot to mention; he is only 18 years old, and somewhat of a tyrant. his father died a few years ago, leaving him in charge of the nation of Celine, assuming the positon of "Chancellor Prince" -- a position he was soon to find a way to rework to allow him all the same priveliges and honors of an actual king. You flinch at his presence, but hide it well. 
 "Hello, noble Prince. It is nice to see you too!" You bow to him, grinding your teeth as you do. "I am ready to fulfill my duty, sir. Where is the elder, and what is his name?" 
 "Why, of course, Greenbeard. I know you are a very, very busy man. You have much pipe-smoking to attend to at home in the West Continent -- and I mean not to keep you from your necessary activites." He smirks at you. "What a dick," you think to yourself.
 
@@ -360,7 +386,7 @@ You smack him back, harder than his. He reels backwards in shock. The crowd gasp
 
 FINALLY, he brings you to the entrance of the elder's abode. "Here we are.... Shall we, Greenbeard?"
 He opens the door, entering the home... 
-It is a fairly big room, equipped with the many furnishings of an older dwelling -- chairs and tables, and a fireplace, and many beautiful paintings. The lighting is dim and mourning, fitting for the occasion, and in the corner you can make out the shape of a bed. Two guards stand on either side of it. As you walk closer, you see a nurse kneeled next to him, whispering stories to him. Suddenly, as you approach, his eyes open.
+It is a fairly big room, equipped with the many furnishings of an older dwelling -- chairs and tables, and a FIREPLACE / CAMPFIRE , and many beautiful paintings. The lighting is dim and mourning, fitting for the occasion, and in the corner you can make out the shape of a bed. Two guards stand on either side of it. As you walk closer, you see a nurse kneeled next to him, whispering stories to him. Suddenly, as you approach, his eyes open.
 
 He grunts. 
 "Old man !! Look who I've brought! It's GREENBEARD!! He had to travel here all the way across the ocean man, can you believe it? 
@@ -370,10 +396,11 @@ The prince laughs. "Oh, shut up you old fart. Go on... Tell him what you wish!"
 You approach the old man.... 
 
 * [Listen to his request] -> listen
+* [reallocate first] -> reallocation_options_2
 
 == listen ==
 
-You kneel down next to him and look him in the eye. He looks back at you peacefully, yet a hint of greed is behind those eyes; he wants something. He NEEDS something from you... and you are the only one who can do it. You lean in and position your ear by his mouth. 
+You kneel down next to him and look him in the eye. The nurse stands and moves away, and the guards turn their backs to give the two of you some privacy. He looks back at you peacefully, yet a hint of greed is behind those ancient, dying eyes -- he wants something. He NEEDS something from you... and you are the only one who can do it. You lean in and position your ear by his mouth to listen.
 
 "Greenbeard...""
 
@@ -385,7 +412,69 @@ You shift your weight. His breath feels awfully uncomfortble on your ear... "Hur
 
 "Kill him.... Kill.. Murder the prince... 
 Only you can do it, Greenbeard... I know it's true... I've seen you work, just like I've seen the great wizards of my age who've come and gone... and you're the only one who comes even close to mimicking their power in their primes..." 
-He coughs. You shudder a little bit, as horror fills your body. You are not afraid of a mere boy... but you think briefly of the old King, who you knew well... and of his wife, who yet lives, though she's permitted little sunlight by the cruel Prince, locked away in her corridors... 
+He coughs. You shudder a little bit, as horror fills your body. You are not afraid of a mere boy... but you think briefly of the old King, who you knew well... and of his wife, who yet lives, though she's permitted little sunlight by the cruel Prince, locked away deep in her corridors.
+"Come closer, dear Greenbeard..." mutters the man, louder this time, for the rest in the room to hear. 
+
+* [Come closer] -> come_closer
+
+==come_closer==
+
+"The King... was murdered by the Prince... four years ago today... I .. know... I know it... And only me ..." He coughs again, much louder this time, and a thick black bile escapes his lips onto his robes. The nurse leaps up and wipes him down a bit before retreating back into the corner. 
+"Make it quick, Greenbeard," snarls the Prince. You shudder at his voice. "Is this really happening...?" you think to yourself.
+
+"Believe me, wizard. Heed my words and grant my final wish. Slay the prince and plunge our kingdom into its rightful anarchy... Things will sort themselves.. out.. Better to live a horrid truth than a horrid ... lie....." He chokes out these final words, before coughing up a pint of blood, his head falling flat. 
+Silence for a moment. The nurse jumps back up. You turn around and stare at the Prince for a moment -- it feels like time has stood still. You barely hear the nurse say, "he's dead," and barely comprehend the sight before you as the Prince smiles at you. 
+
+
+"So? What did he say?"
+
+You are now Level {advance_level()}.
+-> upgrade_menu_3
+
+STATS:
+Strength : {strength}
+Intellligence : {intelligence}
+Charisma : {charisma}
+
+==choices==
+
+* [Attack the Prince] -> kill
+* [Tell the Prince what the man said] -> tell
+
+
+==kill==
+You draw your wand and lurch forwards to strike. "CATATOSTRUPHUM MORIARTUS!" you shout as you point your wand towards the prince, and a great purple spirit escapes the tip of it... But a guard leaps in front of him, catching the missile right in his chest, taking the full force of its power. He's thrown across the room and lands upon a table at the far corner, breaking it in half. 
+The Prince shouts with anger and runs out of the building. You give chase, dodging the guard as best you can, but he grabs your knee!!
+
+{strength >= 2:
+You break free from the guard's grip and chase after the prince. 
+STRENGTH CHECK PASSED!
+
+* [Give chase!!] ->give_chase
+
+- else:
+
+You're not strong enough to escape his grip in time.... and unfortunately, the prince gets away....
+
+STRENGTH CHECK FAILED 
+The warlock guardians of the city cast a protective guard over its gates, and you can no longer escape... you fight to your best ability, but there's no point.... 
+THE END!! (weak ending)
+
+
+}
+
+->DONE
+
+
+==give_chase==
+You chase him down and tackle him.... The great alarm bells sound behind you, positioned atop the southern gates.. But you'll have time to kill him before the guards reach you. 
+The boy writhes and whimpers under your grasp. The people of the City of Green Tea Leaves gather around the two of you, whispering and muttering in awe at the scene before them. It's worth nothing that none of them step forward to stop you.... 
+"GREENBEARD!! What is this!! What are you doing??! What did that man tell you? I... Stop this at once!" The Prince cries out, and you 
+
+-> DONE
+
+==tell==
+
 
 
 
@@ -418,6 +507,8 @@ He coughs. You shudder a little bit, as horror fills your body. You are not afra
 - else:
     -> no_realloc
 }
+
+###reallocations 1
 
 
 == reallocation_options ==
@@ -479,5 +570,79 @@ Charisma : {charisma}
 
 ==post_reallocation ==
 -> continue_path_5
+
+-> DONE
+
+
+
+###reallocations 2 
+
+== reallocation_menu_2 ==
+{ reallocations > 0:
+    -> reallocation_options_2
+- else:
+    -> no_realloc_2
+}
+
+
+== reallocation_options_2 ==
+You have {reallocations} reallocation points left. 
+
+Choose a stat point to weaken: 
+
++ {strength > 0} [Strength] 
+    -> strength_realloc_2
+
++ {intelligence > 0} [Intelligence] 
+    -> intelligence_realloc_2
+
++ {charisma > 0} [Charisma] 
+    -> charisma_realloc_2
+
+
+== strength_realloc_2 ==
+Choose a stat to reallocate the point towards:
+* [Intelligence]
+    ~ reallocate("strength", "intelligence")
+    -> after_reallocation_2
+* [Charisma]
+    ~ reallocate("strength", "charisma")
+    -> after_reallocation_2
+
+
+== intelligence_realloc_2 ==
+Choose a stat to reallocate the point towards: 
+* [Strength] 
+    ~ reallocate("intelligence", "strength")
+    -> after_reallocation_2
+* [Charisma]
+    ~ reallocate("intelligence", "charisma")
+    -> after_reallocation_2
+
+
+== charisma_realloc_2 ==
+Choose a stat to allocate the point towards:
+* [Strength]
+    ~ reallocate("charisma", "strength")
+    -> after_reallocation_2
+* [Intelligence]
+    ~ reallocate("charisma", "intelligence")
+    -> after_reallocation_2
+
+
+== no_realloc_2 ==
+You have no reallocations left. If you're soft-locked consider restarting. Oops !! !
+-> after_reallocation_2
+
+
+== after_reallocation_2 ==
+CURRENT STATS :
+Strength : {strength}
+Intelligence : {intelligence}
+Charisma : {charisma}
+-> post_reallocation_2
+
+==post_reallocation_2 ==
+-> listen
 
 -> DONE
