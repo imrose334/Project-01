@@ -23,8 +23,8 @@ VAR intelligence = 3
 VAR charisma = 2
 VAR reallocations = 2
 VAR money = 50
-VAR visited_before = false
 VAR has_new_wand = false
+VAR visited_before = false
 VAR visited_before_2 = false
 VAR visited_before_3 = false
 
@@ -83,14 +83,14 @@ And in the corner, nestled between two empty shelves, is a large chest. It's rib
 
 ==break_chest==
 
-You break open the chest with a powerful display of force. The chest dissolves into powder. You sigh in despair. "They must have rigged it so that spell wouldn't work. What a waste," you say aloud.
+You break open the chest with a powerful display of force. Doesn't budge. You sigh in despair. "They must have rigged it so that spell wouldn't work," you say aloud.
 Suddenly, the roof begins to crack. You hear the supports rattle and shake, and realize the building is about to come crashing down on you!!! 
 
 * [Run outside] -> run_outside
 * [Do nothing] -> do_nothing
 
 ==run_outside==
-You quickly run outside of the barracks, just in time before it completely falls appart. The entire structure collapses with a loud grinding noise. 
+You quickly run outside of the barracks, just in time before it completely falls appart. The back half of the structure collapses with a loud grinding noise... But the front seems to be intact.
 * [Continue down the path] -> continue_path_1
 
 == do_nothing ==
