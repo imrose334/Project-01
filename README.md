@@ -23,7 +23,7 @@ lines include:
     103
     115
 One major choice 
-YES (There are 8 endings!)
+YES (There are 8 ENDINGS!)
 lines include:
     163
     191
