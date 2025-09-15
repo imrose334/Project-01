@@ -469,7 +469,84 @@ THE END!! (weak ending)
 ==give_chase==
 You chase him down and tackle him.... The great alarm bells sound behind you, positioned atop the southern gates.. But you'll have time to kill him before the guards reach you. 
 The boy writhes and whimpers under your grasp. The people of the City of Green Tea Leaves gather around the two of you, whispering and muttering in awe at the scene before them. It's worth nothing that none of them step forward to stop you.... 
-"GREENBEARD!! What is this!! What are you doing??! What did that man tell you? I... Stop this at once!" The Prince cries out, and you 
+"GREENBEARD!! What is this!! What are you doing??! What did that man tell you? I... Stop this at once!" The Prince cries out. 
+Any sympathy you once would've had for the boy is now gone .... For what would the point be, of an old man to tell a lie for his last words... just to have the city thrown into chaos? Surely not, when he wouldn't be alive to see it. No. The sudden death of the King, the poor excuses given by the autopsy commission (who were hired by the on's followers)... it all adds up to you in this moment. The Prince killed the King. And here he is, below your hands, at your mercy.
+"Please dont kill me, Greenbeard... I.. I don't know what he told you in there, but it isn't true... I didn't do it..." He looks up at you with fear in his eyes, masking his rage -- but you see through his act.
+*["Did what? I didn't say anything about anything..."] -> didwhat
+*["You killed a good friend of mine. For what? For power? Tell me."] -> tellme
+
+==tellme ==
+The Prince scoffs and spits upwards at you, but misses, and the spit comes right down in his face. Lol
+"In this land, we believe in the will of the elders... And the rightful passing down of ideas from old to new. You betrayed that principle, as you did your own father. You must die now. Surely you realize that."
+
+The Prince shudders. "Do it then." He looks up at you with an unreadable expression. The look of a man who has accepted his fate. 
+
+* [Kill him] -> killhim
+* [Take mercy] -> takemercy
+
+-> DONE
+==didwhat
+
+The Prince goes red. You smile. There is no doubt about it now. 
+"In this land, we believe in the will of the elders... And the rightful passing down of ideas from old to new. You betrayed that principle, as you did your own father. You must die now. Surely you realize that."
+
+The Prince shudders. "Do it then." He looks up at you with an unreadable expression. The look of a man who has accepted his fate.
+
+* [Kill him] -> killhim
+* [Mercy] -> takemercy
+
+==killhim==
+{open_chest: You plunge your dagger you claimed from the chest off the main path to town into his chest, the poison of its blade quickly seeping into the veins around the chambers of his heart. The death is quick... and painless. Something you can't say for the many innocent lives he took in his reigning years as Chancellor Prince.}
+{not open_chest: You raise your wand up high and mutter the killing spell. "EXOBILONOMUS PORIPHICUS!!!" A bright green flare of surging magical energy escapes it, plunging straight into the Prince's heart. A quick and painless death. Something you can't say for the many innocent lives he took in his reigning years as Chancellor Prince.}
+As you watch the life fade from your friend's son's eyes, you feel the weight of a great burden lift up off your back. The city has been freed from its curse -- and now maybe it would inherit a new one, this is true. But you've fulfilled the final wish of its final elder. He wanted nothing more than to have his fellow citizens of Celine live a life of truth. And so... 
+Your next duty is to take to the world the story of the Prince's plot. They deserve to know the truth, as this too was part of the old man's wish.
+"LOUDUS MEGAPHONIUMUS!" you shout, followed by "TELEPATHiPHORTH MAGICIA INTRISINET!!"" These produce two effects -- one that magnifies the sound of your voice a hundred fold, so that all throughout the city may hear your words, and one for the willing Wizards in the world, so that they hear your voice in the form of telepathy.
+"All who may hear these words!! I pray thee take heed and close notice of what I say here today! I am the wizard Greenbeard, and I was tasked with fulfilling the last request of the last elder of Celine's capital city, an task I took up against my will, under the tyrannical oversight of the Chancellor Prince! He who is now underneath my foot, his body lifeless and limp!! WHY?? For he is the one who MURDERED our old KING!! I take it upon you, all of you here in the City of Green Tea Leaves, as well as those magically inclined listening abroad; DO NOT LET THOSE BEHIND THIS MAN AND HIS PLOT ESCAPE HIS JUDGEMENT!! There is SOMETHING FISHY AFOOT! GREENBEARD OUT!!!! 
+
+And so the crowds surrounding erupt into raucous applause, as a riot breaks out in the streets and squares of the heart of Celine. Any guards who dare resist against the full frontal force of the people's fury are toppled quickly, their armor torn from their skin like ants to a fallen insect... You can only watch on as the people claim their fate for their own. You know this is what the old man would've wanted..
+
+"Inactriset invisiblus," you say softly under your breath, as your form is shrouded in an invisble cloud of magical energy. You've done your duty. It's time to return home, and puff on some much-deserved pipeweed.
+
+CONGRATS!!! YOU HAVE COMPELTED THE GAME!!!
+
+FINAL STATS: 
+Level : {level}.
+Coins : {money}
+
+STATS:
+Strength : {strength}
+Intellligence : {intelligence}
+Charisma : {charisma}
+
+
+(LAWFUL GOOD ENDING)
+
+
+-> DONE
+
+==takemercy==
+You raise your wand... and cast the Binding spell. "RESTRICTOPHUS NOLOTROLIMB ACTREOUS!!" White chains of infallible matter escape from the lip of your wand, trapping the Prince and restricting his movement entirely. He will not be able to move until you say the words once more. "LOUDUS MEGAPHONIUMUS!" you shout, followed by "TELEPATHiPHORTH MAGICIA INTRISINET!!"" These produce two effects -- one that magnifies the sound of your voice a hundred fold, so that all throughout the city may hear your words, and one for the willing Wizards in the world, so that they hear your voice in the form of telepathy.
+"All who may hear these words!! I pray thee take heed and close notice of what I say here today! I am the wizard Greenbeard, and I was tasked with fulfilling the last request of the last elder of Celine's capital city, an task I took up against my will, under the tyrannical oversight of the Chancellor Prince! He who is now underneath my foot, bound by my impenetrable constraints!! WHY?? For he is the one who MURDERED our old KING!! I take it upon you, all of you here in the City of Green Tea Leaves, as well as those magically inclined listening abroad; DO NOT LET THIS MAN ESCAPE HIS JUDGEMENT!! I cannot, in my right mind, kill the boy! So I leave it to you all instead. GREENBEARD OUT!!!! 
+
+And so the crowds surrounding erupt into raucous applause, as a riot breaks out in the streets and squares of the heart of Celine. Any guards who dare resist against the full frontal force of the people's fury are toppled quickly, their armor torn from their skin like ants to a fallen insect... You can only watch on as the people claim their fate for their own. You know this is what the old man would've wanted.. but more so, you know the king would be happy to know someone saw it in their heart to forgive his son. It wasn't in the King's nature to hold a grudge.
+"Inactriset invisiblus," you say softly under your breath, as your form is shrouded in an invisble cloud of magical energy. You've done your duty. It's time to return home, and puff on some much-deserved pipeweed.
+
+CONGRATS!!! YOU HAVE COMPELTED THE GAME!!!
+
+FINAL STATS: 
+Level : {level}.
+Coins : {money}
+
+STATS:
+Strength : {strength}
+Intellligence : {intelligence}
+Charisma : {charisma}
+
+
+(CHAOTIC GOOD ENDING)
+
+
+-> DONE
 
 -> DONE
 
