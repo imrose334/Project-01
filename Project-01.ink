@@ -23,11 +23,19 @@ VAR intelligence = 3
 VAR charisma = 2
 VAR reallocations = 2
 VAR money = 50
+VAR visited_before = false
+VAR has_new_wand = false
+VAR visited_before_2 = false
+VAR visited_before_3 = false
 
 
 -> storm_enter
 
 ==storm_enter==
+
+This is the tale of the great wizard Greenbeard, and his travels in the fine lands of Celine. 
+
+
 You are currently Level {level}.
 Coins : {money}
 
@@ -37,7 +45,7 @@ Intellligence : {intelligence}
 Charisma : {charisma}
 
 
-You currently have {reallocations} available stat reallocations. You can choose to reallocate one of your stat points at a CAMPFIRE. 
+You currently have {reallocations} available stat reallocations. You can choose to reallocate one of your stat points at a CAMPFIRE or FIREPLACE. 
 
 You find yourself in the midst of a great torrential storm. The winds lap violently at your robes as you drudge yourself through the steppes around you, its great green plains of thick grain rocking back and forth. You are the wizard Greenbeard, and your name is known in these parts -- mostly for your role in the Grand Coup and your battles overseas, but also for your highly charitable nature. 
 Indeed, the reason behind your visit to this grand kindom of Celine is to hear and fulfill one final request of the capital's last remaining elder, a task the reigning Chancellor Prince Roman has honored you with the privelige of caryring out. You grit your teeth in frustration as you continue your march northwards, scorning the "fair" Prince under your breath. Though the offer is presented as a choice, there was no such thing, as if you had refused the Prince would surely have placed a bounty on your head. And so you had to leave your comfortable life and abode far off in the Western continent, snatched away from your pipe and your fireplace.
@@ -51,11 +59,19 @@ As you walk the path laid before you, you begin to approach a structure on your 
 -> DONE
 
 ==enter_structure==
-As you approach the structure, you realize its door has been left wide open, so there's no need to cast any lock-breaking spells -- at least not yet. You step on up to its entrance and push your way past its rickety doorframe, shutting the door slightly behind you. The inside of the structure is pitch black, and you cannot see a thing. You get the feeling there's something there, hidden in the dark, but you can't quite tell what. 
 
 
-
+{visited_before:
+    You return to the old outpost. The door is still open, but you've been here before.
+    * [Cast a light spell to make things more visible] -> light_spell
+- else:
+    As you approach the structure, you realize its door has been left wide open, so there's no need to cast any lock-breaking spells -- at least not yet. You step on up to its entrance and push your way past its rickety doorframe, shutting the door slightly behind you. The inside of the structure is pitch black, and you cannot see a thing. You get the feeling there's something there, hidden in the dark, but you can't quite tell what. 
+    ~ visited_before = true
 * [Cast a light spell to make things more visible] -> light_spell
+}
+
+
+
 * [Turn around and exit from whence you came] -> exit
 
 ==light_spell==
@@ -144,7 +160,8 @@ Suddenly, the horde charges you. What will you do!!??
 
 ==spell_fail==
 You cast a spell like an idiot and it ricochets back and hits you in the face. 
-THE END !! (poor listener ending) 
+THE END !! (dumb ending) 
+
 -> DONE
 
 ==dagger_warlock_attack==
@@ -165,7 +182,11 @@ Charisma : {charisma}
 
 
 ==continue_path_2==
-You continue down the path like nothing happened. However because you chose not to take caution, you're ambushed by a horde of corrupted warlocks !!!AHHHH!!!
+You continue down the path like nothing happened. However because you chose not to take caution, you're ambushed by a horde of corrupted warlocks !!!AHHHH!!! WHAT WILL YOU DO? 
+
+*[Run away!!] -> enter_structure
+*[Fight them!] -> spell_fail
+
 YOU LOSE !! THE END!!
 ("lack of caution" ending) 
 
@@ -196,39 +217,39 @@ if you do then you get a level
 == upgrade_menu_1 ==
 You have advanced to Level {level}! Congratulations. 
 Now you may choose one of your three stats to increase by one value. Choose wisely!
-* [increase Strength] 
++ [increase Strength] 
 ~ strength = strength + 1 
 -> continue_path_1
-* [Increase Intelligence]
++ [Increase Intelligence]
 ~ intelligence = intelligence + 1 
 -> continue_path_1
-* [increase Charisma]
++ [increase Charisma]
 ~ charisma = charisma + 1
 -> continue_path_1
 
 == upgrade_menu_2 ==
 You have advanced to Level {level}! Congratulations. 
 Now you may choose one of your three stats to increase by one value. Choose wisely!
-* [increase Strength] 
++ [increase Strength] 
 ~ strength = strength + 1 
 -> continue_path_4
-* [Increase Intelligence]
++ [Increase Intelligence]
 ~ intelligence = intelligence + 1 
 -> continue_path_4
-* [increase Charisma]
++ [increase Charisma]
 ~ charisma = charisma + 1
 -> continue_path_4
 
 == upgrade_menu_3 ==
 You have advanced to Level {level}! Congratulations. 
 Now you may choose one of your three stats to increase by one value. Choose wisely!
-* [increase Strength] 
++ [increase Strength] 
 ~ strength = strength + 1 
 -> choices
-* [Increase Intelligence]
++ [Increase Intelligence]
 ~ intelligence = intelligence + 1 
 -> choices
-* [increase Charisma]
++ [increase Charisma]
 ~ charisma = charisma + 1
 -> choices
 
@@ -242,34 +263,45 @@ Strength : {strength}
 Intellligence : {intelligence}
 Charisma : {charisma}
 
-After succesfully slaying all the warlocks, you make your way down the path again. The rain begins to lighten up as you continue to cross the hilly steppes of Celine. You can sense you're nearing the end of your journey, and you're soon to reach the city gates, where you will be escorted to the final elder's living chambers by the Chancellor Prince's envoys. 
-You see a campfire on your right !! SPLENDID !! You can use this to reallocate any points you might've placed in stats you now regret. Take note; charisma is best used for interactions, intelligence is best used for spellwork, and strength is best used for battle.
-*[choose to reallocate] ->reallocation_options
-*[no thanks!!] -> continue_path_5
+{visited_before_2: 
+You walk back up the path towards where you slayed the warlocks. You can still see their corpses strewn across the hilly patch of plains, their cloaks soaked in their own blood.  
+    You walk past the CAMPFIRE again. Maybe you will take a seat this time around ? 
+    *[Choose to reallocate] ->reallocation_options
+*[No thanks. Turn around] -> continue_path_6
+-else:
+
+   After succesfully slaying all the warlocks, you make your way down the path again. The rain begins to lighten up as you continue to cross the hilly steppes of Celine. You can sense you're nearing the end of your journey, and you're soon to reach the city gates, where you will be escorted to the final elder's living chambers by the Chancellor Prince's envoys. 
+You see a CAMPFIRE on your right !! SPLENDID !! You can use this to reallocate any points you might've placed in stats you now regret. Take note; charisma is best used for interactions, intelligence is best used for spellwork, and strength is best used for battle.
+ ~   visited_before_2 = true
+
+    *[Choose to reallocate] ->reallocation_options
+    *[No thanks!!] -> continue_path_5
+
+
+
+}
+
+
 
 ==continue_path_5==
 
-In the distance you see a figure approach - a merchant of sorts, it seems.
-He walks up to you. 
-"Hello, wizard!! I have goods to sell you!" 
-"Oh really," you say. "Well, I drive a hard bargain."
-"HAH! Well, I think you'll like what you see! Here we have... a PHEASANT SPHERE!!" The merchant pulls out a sphere with a pheasant trapped inside.
-"Useless," you say. "Do you have anything else?"
-"Well," grumbles the merchant, "I suppose I do have this replacement wand. BUT !! You need at least 4 INTELLIGENCE to use it! 
-{intelligence >= 4:
-    It seems like you have enough! So what do you say then? 
-    "I'll take it," you say. But... I'm not paying much.
-    INTELLIGENCE CHECK PASSED!
-    
+{visited_before_3:
+    As you continue your walking... You see a figure once more. It is the merchant, and he is sitting upon a stump. He sees you approach and cries out.
+    "Hello there, wizard! Are you here to buy some more of my goods? Bound for revenge for my snarky comments, perhaps?" He frowns. "I would hope not..."
+    "Nooo, I'm not as trigger-happy these days. Consider yourself lucky."
+    The merchant smiles. "Oh, alright then. So what's good, then? Have you increased your intelligence in our time away?" He jokes.
+    "I have actually. Let's do some business. I want a discount on that wand." 
 - else:
-    The merchant smirks. "Oh... you're not quite there yet. Better luck next time I suppose..."
-    You frown. "Alright then, scum. Your wand work's most likely mediocre anyway."
-    ->leave
-    }
-  
+    In the distance you see a figure approach - a merchant of sorts, it seems.
+    He walks up to you. 
+    "Hello, wizard!! I have goods to sell you!" 
+    "Oh really," you say. "Well, I drive a hard bargain."
+    "HAH! Well, I think you'll like what you see! Here we have... a PHEASANT SPHERE!!" The merchant pulls out a sphere with a pheasant trapped inside.
+    "Useless," you say. "Do you have anything else?"
+    "Well," grumbles the merchant, "I suppose I do have this nifty new wand I got from the Eastern Continents.. BUT !! You need at least 4 INTELLIGENCE to use it!" 
+}
 
-
-
+~visited_before_3 = true
 
 You currently have {money} coins.
 
@@ -283,16 +315,34 @@ You currently have {money} coins.
     ~ money = money - 15
     You pay the full price.
 }
+
+{intelligence >= 4:
+    It seems like you have enough! So what do you say then? 
+    "I'll take it," you say. But... I'm not paying much.
+    INTELLIGENCE CHECK PASSED!
+- else:
+    The merchant smirks. "Oh... you're not quite there yet. Better luck next time I suppose..."
+    INTELLIGENCE CHECK FAILED!
+    You frown. "Alright then, scum. Your wand work's most likely mediocre anyway."
+    ->leave
+}
+
 ->new_wand
+
 
 
 ==new_wand==
 You've gained a new wand today ! It will serve you well in battle no doubt.
+~ has_new_wand = true
 
 You now have {money} coins left.
 
 Now what will you do? 
+
 * [Continue down the path] -> continue_path_6
+
+* [Turn around and go back] -> continue_path_4
+
 
 
 ==leave==
@@ -300,13 +350,14 @@ Now what will you do?
 
 The merchant laughs and walks away. What now? 
 * [Continue down the path] -> continue_path_6
+* [Turn around] -> continue_path_4
 
 ==continue_path_6
 
 You finally see the city gates in the distance. AT LAST !! You've reached the end of your journey. As you approach the entrance to the city, you thank your lucky stars that it will soon all be over... 
 
 The Chancellor Prince is there to meet you at the gates.
-"Hello, fair Greenbeard!!! It's been far too long!" he says when he sees you, running towards you. I forgot to mention; he is only 18 years old, and somewhat of a tyrant. his father died a few years ago, leaving him in charge of the nation of Celine, assuming the positon of "Chancellor Prince" -- a position he was soon to find a way to rework to allow him all the same priveliges and honors of an actual king. You flinch at his presence, but hide it well. 
+"Hello, fair Greenbeard!!! It's been far too long!" he says when he sees you, running towards you. I forgot to mention; he is only 22 years old, and somewhat of a tyrant. his father died a few years ago, leaving him in charge of the nation of Celine, assuming the positon of "Chancellor Prince" -- a position he was soon to find a way to rework to allow him all the same priveliges and honors of an actual king. You flinch at his presence, but hide it well. 
 "Hello, noble Prince. It is nice to see you too!" You bow to him, grinding your teeth as you do. "I am ready to fulfill my duty, sir. Where is the elder, and what is his name?" 
 "Why, of course, Greenbeard. I know you are a very, very busy man. You have much pipe-smoking to attend to at home in the West Continent -- and I mean not to keep you from your necessary activites." He smirks at you. "What a dick," you think to yourself.
 
@@ -386,7 +437,7 @@ You smack him back, harder than his. He reels backwards in shock. The crowd gasp
 
 FINALLY, he brings you to the entrance of the elder's abode. "Here we are.... Shall we, Greenbeard?"
 He opens the door, entering the home... 
-It is a fairly big room, equipped with the many furnishings of an older dwelling -- chairs and tables, and a FIREPLACE / CAMPFIRE , and many beautiful paintings. The lighting is dim and mourning, fitting for the occasion, and in the corner you can make out the shape of a bed. Two guards stand on either side of it. As you walk closer, you see a nurse kneeled next to him, whispering stories to him. Suddenly, as you approach, his eyes open.
+It is a fairly big room, equipped with the many furnishings of an older dwelling -- chairs and tables, a FIREPLACE , and many beautiful paintings. The lighting is dim and mourning, fitting for the occasion, and in the corner you can make out the shape of a bed. Two guards stand on either side of it. As you walk closer, you see a nurse kneeled next to him, whispering stories to him. Suddenly, as you approach, his eyes open.
 
 He grunts. 
 "Old man !! Look who I've brought! It's GREENBEARD!! He had to travel here all the way across the ocean man, can you believe it? 
@@ -437,9 +488,32 @@ Intellligence : {intelligence}
 Charisma : {charisma}
 
 ==choices==
+STATS: 
 
-* [Attack the Prince] -> kill
+
+
+Strength : {strength}
+Intellligence : {intelligence}
+Charisma : {charisma}
+
+
++ [Attack the Prince] -> kill
 * [Tell the Prince what the man said] -> tell
+
+==tell==
+You tell him, and the Prince is shocked. 
+"I would never!! You know that!!" He smiles at you, mildly convincingly, and slaps you on the back. Come then, old friend. He was on his dying breath, and he told you THAT? You must be joking, surely." He then frowns. 
+You take a step forward. "I don't think I like this kind of joke. Greenbeard, he says as he glances over towards the guards, who inch forward as well. 
+
+*[Attack the prince] -> kill
+*[Stand down] -> standdown
+
+==standdown
+You submit to the Prince's will... And alas, he realizes the threat you'd pose if he let you go, so he promplty has you killed.
+YOU LOSE!
+(BAD ENDING)
+
+-> DONE
 
 
 ==kill==
@@ -459,7 +533,7 @@ You're not strong enough to escape his grip in time.... and unfortunately, the p
 STRENGTH CHECK FAILED 
 The warlock guardians of the city cast a protective guard over its gates, and you can no longer escape... you fight to your best ability, but there's no point.... 
 THE END!! (weak ending)
-
++[Rewind to the man's deathbed scene] -> come_closer
 
 }
 
@@ -497,7 +571,7 @@ The Prince shudders. "Do it then." He looks up at you with an unreadable express
 
 ==killhim==
 {open_chest: You plunge your dagger you claimed from the chest off the main path to town into his chest, the poison of its blade quickly seeping into the veins around the chambers of his heart. The death is quick... and painless. Something you can't say for the many innocent lives he took in his reigning years as Chancellor Prince.}
-{not open_chest: You raise your wand up high and mutter the killing spell. "EXOBILONOMUS PORIPHICUS!!!" A bright green flare of surging magical energy escapes it, plunging straight into the Prince's heart. A quick and painless death. Something you can't say for the many innocent lives he took in his reigning years as Chancellor Prince.}
+{not open_chest: You {has_new_wand: take your fancy new wand you got from the merchant, and} raise your wand up high and mutter the killing spell. "EXOBILONOMUS PORIPHICUS!!!" A bright green flare of surging magical energy escapes it, plunging straight into the Prince's heart. A quick and painless death. Something you can't say for the many innocent lives he took in his reigning years as Chancellor Prince.}
 As you watch the life fade from your friend's son's eyes, you feel the weight of a great burden lift up off your back. The city has been freed from its curse -- and now maybe it would inherit a new one, this is true. But you've fulfilled the final wish of its final elder. He wanted nothing more than to have his fellow citizens of Celine live a life of truth. And so... 
 Your next duty is to take to the world the story of the Prince's plot. They deserve to know the truth, as this too was part of the old man's wish.
 "LOUDUS MEGAPHONIUMUS!" you shout, followed by "TELEPATHiPHORTH MAGICIA INTRISINET!!"" These produce two effects -- one that magnifies the sound of your voice a hundred fold, so that all throughout the city may hear your words, and one for the willing Wizards in the world, so that they hear your voice in the form of telepathy.
@@ -525,7 +599,7 @@ Charisma : {charisma}
 -> DONE
 
 ==takemercy==
-You raise your wand... and cast the Binding spell. "RESTRICTOPHUS NOLOTROLIMB ACTREOUS!!" White chains of infallible matter escape from the lip of your wand, trapping the Prince and restricting his movement entirely. He will not be able to move until you say the words once more. "LOUDUS MEGAPHONIUMUS!" you shout, followed by "TELEPATHiPHORTH MAGICIA INTRISINET!!"" These produce two effects -- one that magnifies the sound of your voice a hundred fold, so that all throughout the city may hear your words, and one for the willing Wizards in the world, so that they hear your voice in the form of telepathy.
+You raise your wand... {has_new_wand: your brand new, flashy wand you've bought off the merchant ...}... and cast the Binding spell. "RESTRICTOPHUS NOLOTROLIMB ACTREOUS!!" White chains of infallible matter escape from the lip of your wand, trapping the Prince and restricting his movement entirely. He will not be able to move until you say the words once more. "LOUDUS MEGAPHONIUMUS!" you shout, followed by "TELEPATHiPHORTH MAGICIA INTRISINET!!"" These produce two effects -- one that magnifies the sound of your voice a hundred fold, so that all throughout the city may hear your words, and one for the willing Wizards in the world, so that they hear your voice in the form of telepathy.
 "All who may hear these words!! I pray thee take heed and close notice of what I say here today! I am the wizard Greenbeard, and I was tasked with fulfilling the last request of the last elder of Celine's capital city, an task I took up against my will, under the tyrannical oversight of the Chancellor Prince! He who is now underneath my foot, bound by my impenetrable constraints!! WHY?? For he is the one who MURDERED our old KING!! I take it upon you, all of you here in the City of Green Tea Leaves, as well as those magically inclined listening abroad; DO NOT LET THIS MAN ESCAPE HIS JUDGEMENT!! I cannot, in my right mind, kill the boy! So I leave it to you all instead. GREENBEARD OUT!!!! 
 
 And so the crowds surrounding erupt into raucous applause, as a riot breaks out in the streets and squares of the heart of Celine. Any guards who dare resist against the full frontal force of the people's fury are toppled quickly, their armor torn from their skin like ants to a fallen insect... You can only watch on as the people claim their fate for their own. You know this is what the old man would've wanted.. but more so, you know the king would be happy to know someone saw it in their heart to forgive his son. It wasn't in the King's nature to hold a grudge.
@@ -550,7 +624,7 @@ Charisma : {charisma}
 
 -> DONE
 
-==tell==
+
 
 
 
