@@ -78,7 +78,7 @@ Yes, there are 3 skills, Strength, Intelligence and Charisma, as well as the abi
     172
     42 - 45
 4. Keep Track of Visited Passages (1 point)
-There are two knots in particular that keep track of visited passages, ==continue_path_== on line 286, and ==enter_structure== on line 61.
+There are two knots in particular that keep track of visited passages, ==continue_path_5== on line 286, and ==enter_structure== on line 61.
     lines include:
     27 - 29
     288
